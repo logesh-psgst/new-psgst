@@ -48,6 +48,13 @@ else
     echo "Package erl is NOT installed!"
 fi
 
+dpkg -s erl  &> /dev/null
+
+if [ $? -eq 0 ]; then
+    echo "Package erl is installed!"
+else
+    echo "Package erl is NOT installed!"
+fi
 
 
 
