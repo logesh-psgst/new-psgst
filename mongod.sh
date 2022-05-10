@@ -1,10 +1,14 @@
 #! /bin/bash
 
+#######################################
+# Shell script to install apps on a new system (Ubuntu)
+#######################################
+
 echo ".................................INSTALLNG JAVA..................................................."
 sudo apt-get install software-properties-common
 sudo add-apt-repository ppa:openjdk-r/ppa -y
-sudo apt-get update
-sudo apt-get install openjdk-8-jdk
+sudo apt-get update  # To get the latest package lists
+sudo apt-get install openjdk-8-jdk -y
 echo "JAVA_HOME=$(which java)" | sudo tee -a /etc/environment
 source /etc/environment
 echo $JAVA_HOME
