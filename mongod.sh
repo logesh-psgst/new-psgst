@@ -67,8 +67,8 @@ erl -v
 
 
 echo ".................................INSTALLNG RABBIT MQ..................................................."
-curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.deb.sh | sudo bash
-sudo apt update  # To get the latest package lists
+curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.deb.sh | sudo bash  # Get shell script to create the /etc/apt/sources.list.d/rabbitmq-server.list & Importing packagecloud gpg key file
+sudo apt update  # To get the latest package lists  
 sudo apt install rabbitmq-server  #  Installing and Verifying Rabbitmq
 systemctl start rabbitmq-server.service  #  Start RabbitMQ Service
 systemctl enable rabbitmq-server.service  # Enable auto start on machine reboot/restart
