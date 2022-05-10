@@ -8,7 +8,7 @@ echo ".................................INSTALLNG JAVA...........................
 sudo apt-get install software-properties-common  # Adding the ppa repository and install openjdk in ubuntu
 sudo add-apt-repository ppa:openjdk-r/ppa -y
 sudo apt-get update  # To get the latest package lists
-sudo apt-get install openjdk-8-jdk -y
+sudo apt-get install openjdk-8-jdk -y  #  Installing and Verifying Java
 echo "JAVA_HOME=$(which java)" | sudo tee -a /etc/environment
 source /etc/environment
 echo $JAVA_HOME
@@ -20,23 +20,24 @@ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" 
-nvm install 10.24.1
-npm install -g grunt-cli
-npm install -g pm2
-npm install -g bower
+nvm install 10.24.1  #  Installing and Verifying node
+npm install -g grunt-cli   #  Installing and Verifying Grunt
+npm install -g pm2  #  Installing and Verifying Pm2
+npm install -g bower  #  Installing and Verifying bower
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install ./google-chrome-stable_current_amd64.deb -y
 
 
 echo ".................................NPM REGISTRY..................................................."
-npm set registry http://npm.psgsoftwaretechnologies.com
+npm set registry http://npm.psgsoftwaretechnologies.com   # Setting NPM Registry 
 
 
 echo ".................................INSTALLNG NGINX..................................................."
 sudo apt-get update  # To get the latest package lists
-sudo apt-get install nginx
+sudo apt-get install nginx  #  Installing and Verifying Nginx
 sudo systemctl start nginx
-sudo systemctl status nginx
+sudo systemctl enable nginx  #  Enable automatically starting Nginx when the system starts
+sudo systemctl status nginx  #  Check Nginx status
 nginx -v
 
 echo ".................................INSTALLNG GIT..................................................."
@@ -68,12 +69,13 @@ erl -v
 echo ".................................INSTALLNG RABBIT MQ..................................................."
 curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.deb.sh | sudo bash
 sudo apt update  # To get the latest package lists
-sudo apt install rabbitmq-server
-systemctl start rabbitmq-server.service
+sudo apt install rabbitmq-server  #  Installing and Verifying Rabbitmq
+systemctl start rabbitmq-server.service  #  Start RabbitMQ Service
+systemctl enable rabbitmq-server.service  # Enable auto start on machine reboot/restart
 systemctl status rabbitmq-server.service
-sudo rabbitmqctl add_user admin PsgSt02112016
-sudo rabbitmqctl set_user_tags admin administrator
-sudo rabbitmqctl set_permissions admin “.*” “.*” “.*”
+sudo rabbitmqctl add_user admin PsgSt02112016  #  Adding User to rabbitmq
+sudo rabbitmqctl set_user_tags admin administrator  #  Set administrator previlage to user
+sudo rabbitmqctl set_permissions admin “.*” “.*” “.*”  #  Set administrator privileges on vhost to use
 
 
 echo ".................................INSTALLNG VERSIONS..................................................."
