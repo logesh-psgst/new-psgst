@@ -69,3 +69,15 @@ systemctl status rabbitmq-server.service
 sudo rabbitmqctl add_user admin PsgSt02112016
 sudo rabbitmqctl set_user_tags admin administrator
 sudo rabbitmqctl set_permissions admin “.*” “.*” “.*”
+
+
+echo ".................................INSTALLNG VERSIONS..................................................."
+
+java -version
+node -v
+npm -v
+nvm -v
+nginx -v
+git  --version
+mongod -version
+erl -v
