@@ -14,8 +14,8 @@ pipeline {
             steps {
                 checkout([
                     $class: 'GitSCM', 
-                    branches: [[name: '*/test']], 
-                    userRemoteConfigs: [[url: 'https://github.com/spring-projects/spring-petclinic.git']]
+                    branches: [[name: '*/main']], 
+                    userRemoteConfigs: [[url: 'https://github.com/logesh-psgst/new-psgst/edit/main/Multibranch-jenkinsfile']]
                 ])
             }
         }
@@ -38,7 +38,7 @@ pipeline {
 
         stage('Build Deploy Code') {
             when {
-                branch 'dev'
+                branch 'matser'
             }
             steps {
                 sh """
